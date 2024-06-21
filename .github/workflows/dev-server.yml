@@ -3,7 +3,7 @@ name: Prod Server
 on:
   push:
     branches:
-      - master
+      - master   #this is prod branch
     tags:
       - v*
   pull_request:
