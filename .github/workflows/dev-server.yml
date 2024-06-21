@@ -4,13 +4,12 @@ on:
   push:
     branches:
       - master
-      - dev
     tags:
       - v*
   pull_request:
 
 env:
-  IMAGE_NAME: prod-server
+  IMAGE_NAME: dev-server
 
 jobs:
   build:
