@@ -1,20 +1,20 @@
-name: Prod Server
+name: Dev Server
 
 on:
   push:
     branches:
-      - master   
+      - dev
     tags:
       - v*
   pull_request:
 
 env:
-  IMAGE_NAME: prod-server
+  IMAGE_NAME: dev-server
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/dev')
+    if: github.event_name == 'push'
     permissions:
       contents: read
       packages: write
@@ -43,7 +43,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: executing remote ssh commands using ssh key`
+      - name: executing remote ssh commands using ssh key
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.DEV_SERVER_URL }}
