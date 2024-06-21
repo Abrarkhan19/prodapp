@@ -1,9 +1,10 @@
-name: Dev Server
+name: Prod Server
 
 on:
   push:
     branches:
       - master
+      - dev
     tags:
       - v*
   pull_request:
