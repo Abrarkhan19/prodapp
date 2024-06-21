@@ -41,7 +41,7 @@ app.use("/item", itemRoutes);
 app.use("/invoice", invoiceRoutes);
 
 app.get("/", (req, res) => {
-  res.send("Working");
+  res.send("Code is Working");
 });
 
 // Start server
