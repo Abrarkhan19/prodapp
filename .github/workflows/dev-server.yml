@@ -14,6 +14,10 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    env:
+      GLOBAL_BUNDLE_PATH: /home/ubuntu/global-bundle.pem
+
     if: github.event_name == 'push'
     permissions:
       contents: read
@@ -23,6 +27,10 @@ jobs:
         shell: bash
     steps:
       - uses: actions/checkout@v2
+      - name: Copy global-bundle.pem
+        run: |
+          sudo mkdir -p /home/ubuntu
+          cp ./config/global-bundle.pem $GLOBAL_BUNDLE_PATH
       - name: Build image
         run: docker build . --file Dockerfile --tag $IMAGE_NAME
       - name: Log into registry
