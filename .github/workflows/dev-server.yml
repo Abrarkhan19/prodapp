@@ -3,7 +3,7 @@ name: Prod Server
 on:
   push:
     branches:
-      - master
+      - master #snfnln
     tags:
       - v*
   pull_request:
