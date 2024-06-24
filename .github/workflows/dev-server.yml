@@ -56,6 +56,6 @@ jobs:
           key: ${{ secrets.DEV_SSH_KEY }}
           script: |
             ssh-keyscan ${{ secrets.DEV_SERVER_URL }} >> ~/.ssh/known_hosts
-            scp -i ${{ secrets.DEV_SSH_KEY }} .env ubuntu@${{ secrets.DEV_SERVER_URL }}:/home/ubuntu
-            scp -i ${{ secrets.DEV_SSH_KEY }} config/global-bundle.pem ubuntu@${{ secrets.DEV_SERVER_URL }}:/home/ubuntu
+            scp -i ${{ secrets.DEV_SSH_KEY }} ./env ubuntu@${{ secrets.DEV_SERVER_URL }}:/home/ubuntu
+            scp -i ${{ secrets.DEV_SSH_KEY }} ./config/global-bundle.pem ubuntu@${{ secrets.DEV_SERVER_URL }}:/home/ubuntu
             ssh -i ${{ secrets.DEV_SSH_KEY }} ubuntu@${{ secrets.DEV_SERVER_URL }} 'sh deploy-backend.sh'
