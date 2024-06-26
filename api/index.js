@@ -13,7 +13,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://staging.d1i0afio5vr2xw.amplifyapp.com",
+    origin: "https://www.testingblog.info",
     allowedHeaders: ["Accept", "Content-Type", "Authorization"],
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
     preflightContinue: false,
